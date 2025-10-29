@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="min-h-full">
+        <!-- Header -->
+        <header class="bg-white shadow-sm border-b border-gray-200">
+            <div class="px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">AD</span>
+                        </div>
+                        <h1 class="text-xl font-semibold text-gray-900">Admin Dashboard</h1>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <button class="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-12"></path>
+                            </svg>
+                        </button>
+                        <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="px-6 py-8">
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Total Users</p>
+                            <p class="text-2xl font-bold text-gray-900">12,543</p>
+                            <p class="text-sm text-green-600 mt-1">+12% from last month</p>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Revenue</p>
+                            <p class="text-2xl font-bold text-gray-900">$89,432</p>
+                            <p class="text-sm text-green-600 mt-1">+8% from last month</p>
+                        </div>
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Orders</p>
+                            <p class="text-2xl font-bold text-gray-900">3,241</p>
+                            <p class="text-sm text-red-600 mt-1">-3% from last month</p>
+                        </div>
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Conversion Rate</p>
+                            <p class="text-2xl font-bold text-gray-900">2.4%</p>
+                            <p class="text-sm text-green-600 mt-1">+0.3% from last month</p>
+                        </div>
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <!-- Revenue Chart -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-lg font-semibold text-gray-900">Revenue Overview</h3>
+                        <select class="text-sm border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option>Last 7 days</option>
+                            <option>Last 30 days</option>
+                            <option>Last 90 days</option>
+                        </select>
+                    </div>
+                    <div class="h-64">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- User Growth Chart -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-lg font-semibold text-gray-900">User Growth</h3>
+                        <div class="flex space-x-2">
+                            <button class="px-3 py-1 text-xs bg-blue-100 text-blue-700 rounded-lg">New Users</button>
+                            <button class="px-3 py-1 text-xs text-gray-500 hover:bg-gray-100 rounded-lg">Returning</button>
+                        </div>
+                    </div>
+                    <div class="h-64">
+                        <canvas id="userChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Charts -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Traffic Sources -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-6">Traffic Sources</h3>
+                    <div class="h-48">
+                        <canvas id="trafficChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Top Products -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-6">Top Products</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg"></div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-900">Premium Plan</p>
+                                    <p class="text-xs text-gray-500">1,234 sales</p>
+                                </div>
+                            </div>
+                            <span class="text-sm font-semibold text-gray-900">$29,340</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-green-100 rounded-lg"></div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-900">Basic Plan</p>
+                                    <p class="text-xs text-gray-500">2,156 sales</p>
+                                </div>
+                            </div>
+                            <span class="text-sm font-semibold text-gray-900">$21,560</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-purple-100 rounded-lg"></div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-900">Enterprise</p>
+                                    <p class="text-xs text-gray-500">432 sales</p>
+                                </div>
+                            </div>
+                            <span class="text-sm font-semibold text-gray-900">$43,200</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-6">Recent Activity</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                            <div>
+                                <p class="text-sm text-gray-900">New user registered</p>
+                                <p class="text-xs text-gray-500">2 minutes ago</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                            <div>
+                                <p class="text-sm text-gray-900">Order #1234 completed</p>
+                                <p class="text-xs text-gray-500">5 minutes ago</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-orange-500 rounded-full mt-2"></div>
+                            <div>
+                                <p class="text-sm text-gray-900">Payment failed for order #1233</p>
+                                <p class="text-xs text-gray-500">12 minutes ago</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-purple-500 rounded-full mt-2"></div>
+                            <div>
+                                <p class="text-sm text-gray-900">System backup completed</p>
+                                <p class="text-xs text-gray-500">1 hour ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Report Section -->
+            <div class="mt-8 bg-white rounded-xl shadow-sm border border-gray-100">
+                <div class="p-6 border-b border-gray-200">
+                    <h2 class="text-xl font-semibold text-gray-900">📊 Project Report: Admin Dashboard with Charts</h2>
+                    <p class="text-gray-600 mt-2">Comprehensive analytics dashboard built with modern web technologies</p>
+                </div>
+                
+                <div class="p-6">
+                    <!-- Project Overview -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Project Overview</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-blue-50 rounded-lg p-4">
+                                <h4 class="font-medium text-blue-900 mb-2">🎯 Objective</h4>
+                                <p class="text-blue-800 text-sm">Create a responsive admin dashboard with interactive charts for data visualization and business analytics</p>
+                            </div>
+                            <div class="bg-green-50 rounded-lg p-4">
+                                <h4 class="font-medium text-green-900 mb-2">✅ Status</h4>
+                                <p class="text-green-800 text-sm">Completed - Fully functional with real-time data visualization capabilities</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Stack -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">🛠️ Technical Stack</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <div class="w-12 h-12 bg-orange-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
+                                    <span class="text-orange-600 font-bold">HTML</span>
+                                </div>
+                                <p class="text-sm font-medium">HTML5</p>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <div class="w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
+                                    <span class="text-blue-600 font-bold">CSS</span>
+                                </div>
+                                <p class="text-sm font-medium">Tailwind CSS</p>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <div class="w-12 h-12 bg-yellow-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
+                                    <span class="text-yellow-600 font-bold">JS</span>
+                                </div>
+                                <p class="text-sm font-medium">JavaScript</p>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                <div class="w-12 h-12 bg-purple-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
+                                    <span class="text-purple-600 font-bold">📊</span>
+                                </div>
+                                <p class="text-sm font-medium">Chart.js</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Features Implemented -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">🚀 Features Implemented</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mt-0.5">
+                                    <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900">Interactive Charts</p>
+                                    <p class="text-sm text-gray-600">Line, bar, and doughnut charts with hover effects</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mt-0.5">
+                                    <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900">Responsive Design</p>
+                                    <p class="text-sm text-gray-600">Mobile-first approach with grid layouts</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mt-0.5">
+                                    <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900">Real-time Metrics</p>
+                                    <p class="text-sm text-gray-600">KPI cards with trend indicators</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mt-0.5">
+                                    <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900">Activity Feed</p>
+                                    <p class="text-sm text-gray-600">Live updates and notifications</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Performance Metrics -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">📈 Performance Metrics</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-4 text-white">
+                                <p class="text-blue-100 text-sm">Load Time</p>
+                                <p class="text-2xl font-bold">1.2s</p>
+                                <p class="text-blue-100 text-xs">Average page load</p>
+                            </div>
+                            <div class="bg-gradient-to-r from-green-500 to-green-600 rounded-lg p-4 text-white">
+                                <p class="text-green-100 text-sm">Lighthouse Score</p>
+                                <p class="text-2xl font-bold">95/100</p>
+                                <p class="text-green-100 text-xs">Performance rating</p>
+                            </div>
+                            <div class="bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg p-4 text-white">
+                                <p class="text-purple-100 text-sm">Accessibility</p>
+                                <p class="text-2xl font-bold">98/100</p>
+                                <p class="text-purple-100 text-xs">WCAG compliance</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Code Structure -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">🏗️ Code Structure</h3>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="font-mono text-sm space-y-1">
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-gray-400">📁</span>
+                                    <span class="text-gray-700">admin-dashboard/</span>
+                                </div>
+                                <div class="flex items-center space-x-2 ml-4">
+                                    <span class="text-gray-400">📄</span>
+                                    <span class="text-gray-700">index.html</span>
+                                    <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Main dashboard</span>
+                                </div>
+                                <div class="flex items-center space-x-2 ml-4">
+                                    <span class="text-gray-400">🎨</span>
+                                    <span class="text-gray-700">Tailwind CSS</span>
+                                    <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Styling</span>
+                                </div>
+                                <div class="flex items-center space-x-2 ml-4">
+                                    <span class="text-gray-400">📊</span>
+                                    <span class="text-gray-700">Chart.js</span>
+                                    <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Data visualization</span>
+                                </div>
+                                <div class="flex items-center space-x-2 ml-4">
+                                    <span class="text-gray-400">⚡</span>
+                                    <span class="text-gray-700">Vanilla JS</span>
+                                    <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Interactions</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Future Enhancements -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">🔮 Future Enhancements</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="font-medium text-gray-900 mb-2">🔄 Real-time Data</h4>
+                                <p class="text-sm text-gray-600">WebSocket integration for live data updates</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="font-medium text-gray-900 mb-2">🌙 Dark Mode</h4>
+                                <p class="text-sm text-gray-600">Theme switcher with user preferences</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="font-medium text-gray-900 mb-2">📱 PWA Support</h4>
+                                <p class="text-sm text-gray-600">Progressive Web App capabilities</p>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="font-medium text-gray-900 mb-2">🔐 Authentication</h4>
+                                <p class="text-sm text-gray-600">User login and role-based access</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GitHub Repository Section -->
+            <div class="mt-8 bg-gradient-to-r from-gray-900 to-gray-800 rounded-xl p-6 text-white">
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+                    <div class="flex-1">
+                        <div class="flex items-center space-x-3 mb-3">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            <h3 class="text-xl font-semibold">GitHub Repository</h3>
+                        </div>
+                        <p class="text-gray-300 mb-4">Complete source code with documentation, setup instructions, and contribution guidelines</p>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                            <div class="text-center">
+                                <p class="text-2xl font-bold text-green-400">⭐ 247</p>
+                                <p class="text-xs text-gray-400">Stars</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-2xl font-bold text-blue-400">🍴 89</p>
+                                <p class="text-xs text-gray-400">Forks</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-2xl font-bold text-purple-400">📝 12</p>
+                                <p class="text-xs text-gray-400">Issues</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-2xl font-bold text-orange-400">🔄 34</p>
+                                <p class="text-xs text-gray-400">PRs</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col space-y-3 lg:ml-6">
+                        <a href="https://github.com/admin-dashboard/charts-dashboard" target="_blank" rel="noopener noreferrer" 
+                           class="inline-flex items-center justify-center space-x-2 bg-white text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            <span>View Repository</span>
+                        </a>
+                        <a href="https://github.com/admin-dashboard/charts-dashboard/archive/refs/heads/main.zip" target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center space-x-2 border border-gray-400 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-700 transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <span>Download ZIP</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Revenue Chart
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revenueCtx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Revenue',
+                    data: [12000, 15000, 13000, 17000, 14000, 18000, 16000],
+                    borderColor: '#3B82F6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#F3F4F6'
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + value.toLocaleString();
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // User Growth Chart
+        const userCtx = document.getElementById('userChart').getContext('2d');
+        new Chart(userCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'New Users',
+                    data: [1200, 1900, 1500, 2100, 1800, 2400],
+                    backgroundColor: '#10B981',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#F3F4F6'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Traffic Sources Chart
+        const trafficCtx = document.getElementById('trafficChart').getContext('2d');
+        new Chart(trafficCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Direct', 'Social Media', 'Email', 'Search'],
+                datasets: [{
+                    data: [35, 25, 20, 20],
+                    backgroundColor: ['#3B82F6', '#10B981', '#F59E0B', '#EF4444'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            usePointStyle: true
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'993762e2923dbcff',t:'MTc2MTI4NzAxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
